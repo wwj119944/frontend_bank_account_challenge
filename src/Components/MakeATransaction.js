@@ -6,6 +6,8 @@ import axios from 'axios';
 
 
 function MakeATransaction() {
+
+    //states for data and its attributes
     const [data, setData] = useState(Data);
     const [timestamp, setTimestamp] = useState("");
     const [action, setAction] = useState("");
@@ -13,6 +15,7 @@ function MakeATransaction() {
     const [amount, setAmount] = useState("");
     const [currency, setCurrency] = useState("");
 
+    //states for warning and error validations
     const dateWarning = <div style={{ color: "orange" }}>Warning! Input selected is a future date</div>
     const [timestampError, setTimestampError] = useState({});
     const [actionError, setActionError] = useState({});
