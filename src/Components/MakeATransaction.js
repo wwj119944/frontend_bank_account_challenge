@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form, Table } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import Data from "../data.json";
 import axios from 'axios';
 
@@ -20,10 +20,15 @@ function MakeATransaction() {
     const [amountError, setAmountError] = useState({});
     const [currencyError, setCurrencyError] = useState({});
 
+    //styling of the Make A Transaction title
+    const titleStyle = {
+        color: 'rgba(71, 7, 73, 0.849)',
+        'text-align': 'center'
+    }
+
     //executed when form is submitted
     const handleSubmit = event => {
         event.preventDefault();
-        //validations();
         if (validations()) {
             addTransaction();
             alert('You have submitted the form.')
@@ -90,13 +95,6 @@ function MakeATransaction() {
 
     }, [data]);
 
-    //sort transactions according to latest timestamp
-    data.sort(function (a, b) {
-        if (a.timestamp > b.timestamp) return -1;
-        if (a.timestamp < b.timestamp) return 1;
-        return 0;
-    });
-
     //retrieving current date in format YYYY-MM-DD
     var today = new Date();
     var dd = today.getDate();
@@ -154,7 +152,7 @@ function MakeATransaction() {
 
     return (
         <div className="wrapper">
-            <h1 className="text-center">Make A Transaction</h1>
+            <h1 style={titleStyle}>Make A Transaction</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Transaction Date</Form.Label>

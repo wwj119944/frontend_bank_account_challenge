@@ -1,9 +1,11 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import Data from "../data.json";
+import "../CSS/TransactionsPage.css";
 
 function TransactionsPage() {
 
+    //sort to display transactions according to latest timestamp on top
     Data.sort(function (a, b) {
         if (a.timestamp > b.timestamp) return -1;
         if (a.timestamp < b.timestamp) return 1;
@@ -12,9 +14,10 @@ function TransactionsPage() {
 
     return (
         <div>
+            <h1 className="title">Transaction History</h1>
             <br />
             <Table striped bordered hover>
-                <thead>
+                <thead className="thead">
                     <tr>
                         <th>Timestamp</th>
                         <th>Action</th>

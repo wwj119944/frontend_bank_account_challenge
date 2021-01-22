@@ -7,9 +7,14 @@ import MakeATransactionLogo from '../Images/MakeATransactionLogo.png';
 
 function Home() {
 
-    return (
+    //styling of the Welcome title
+    const titleStyle = {
+        color: 'rgba(71, 7, 73, 0.849)',
+        'text-align': 'center'
+    }
 
-        <div className="text-center">
+    return (
+        <div style={titleStyle}>
             <h1>Welcome to your personal XYZ bank account</h1>
             <h3 style={{ color: 'blue', marginTop: '75px' }}>Pick an action below</h3>
             <Container>
